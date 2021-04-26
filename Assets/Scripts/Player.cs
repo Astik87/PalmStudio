@@ -4,25 +4,23 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public float speed;
+    public float jumpForce;
+    public float groundRadius;
+    private float dx;
+    private float dy;
+    private bool flip = false;
 
-	private Rigidbody2D rb;
-    private Animator anim;
-    private SpriteRenderer sprite;
-	public GameObject checkerGround;
+    public GameObject checkerGround;
     public Joystick joystick;
-	private float dx = 0f;
-    private float dy = 0f;
-	public float speed = 2.5f;
-	public float jumpForce = 15f;
-	public bool isGrounded = false;
-    public float jumpTime = 0f;
+    private Rigidbody2D rb;
+    public Animator anim;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
-        sprite = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -30,30 +28,24 @@ public class Player : MonoBehaviour
     {
         dx = joystick.Horizontal;
         dy = joystick.Vertical;
-        sprite.flipX = dx < 0f;
-        if (!isGrounded) {
-            speed = 1.25f;
-            jumpTime = 0f;
-        } 
-        else { 
-            speed = 2.5f;
-            jumpTime += Time.deltaTime;
-        }
-        rb.velocity = new Vector2(dx*speed, 0);
-        if (isGrounded && dy >= 0.5f && jumpTime >= 0.5f) {
+        rb.velocity = new Vector2(dx * speed, rb.velocity.y);
+        if (flip == false && dx < 0) Flip();
+        else if (flip == true && dx > 0) Flip();
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(checkerGround.transform.position, groundRadius);
+        if (colliders.Length > 1 && dy >= 0.5f)
+        {
             rb.velocity = Vector2.up * jumpForce;
         }
-        anim.SetBool("isJump", !isGrounded);
-        anim.SetFloat("speed", Mathf.Abs(dx));
+        anim.SetBool("isJump", colliders.Length <= 1);
+        anim.SetFloat("speed", dx);
     }
 
-    void FixedUpdate() {
-    	CheckGround();
-    }
-
-    void CheckGround() {
-    	Collider2D[] collider = Physics2D.OverlapCircleAll(checkerGround.transform.position, 0.25f);
-    	isGrounded = collider.Length > 1;
+    void Flip()
+    {
+        flip = !flip;
+        Vector3 Scaler = transform.localScale;
+        Scaler.x *= -1;
+        transform.localScale = Scaler;
     }
 
 }
