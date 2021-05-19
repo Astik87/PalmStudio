@@ -5,9 +5,8 @@ public class BoxController : MonoBehaviour
 {
 
     private GameObject Player;
-    public Transform posLeft;
-    public Transform posRight;
-    private bool isInteract = false;
+    private DistanceJoint2D joint;
+    public bool isInteract = false;
 
     private void Start()
     {
@@ -16,35 +15,35 @@ public class BoxController : MonoBehaviour
 
     public void interact()
     {
-        if (!isInteract)
-        {
-            float distanceLeft = Vector2.Distance(posLeft.position, Player.transform.position);
-            float distanceRight = Vector2.Distance(posRight.position, Player.transform.position);
+        Player PlayerCode = Player.GetComponent<Player>();
 
-            if (distanceLeft < distanceRight)
-            {
-                if (Player.GetComponent<Player>().flip) Player.GetComponent<Player>().Flip();
-                Player.transform.position = posLeft.position;
-            }
-            else
-            {
-                if (!Player.GetComponent<Player>().flip) Player.GetComponent<Player>().Flip();
-                Player.transform.position = posRight.position;
-            }
+        if (Player.transform.position.x > transform.position.x && !PlayerCode.flip) PlayerCode.Flip();
+        if (Player.transform.position.x < transform.position.x && PlayerCode.flip) PlayerCode.Flip();
 
-            Player.GetComponent<Player>().flipAllowed = false;
-            Player.GetComponent<Player>().jumpAllowed = false;
-            this.gameObject.transform.parent = Player.transform;
-            isInteract = true;
-            Player.GetComponent<Player>().interactObj = this.gameObject;
-        } else
-        {
-            Player.GetComponent<Player>().flipAllowed = true;
-            Player.GetComponent<Player>().jumpAllowed = true;
-            this.gameObject.transform.parent = null;
-            isInteract = false;
-            Player.GetComponent<Player>().interactObj = null;
-        }
+        PlayerCode.flipAllowed = false;
+        PlayerCode.jumpAllowed = false;
+        joint = this.gameObject.AddComponent<DistanceJoint2D>();
+        joint.autoConfigureDistance = false;
+        joint.autoConfigureConnectedAnchor = false;
+        joint.distance = 1;
+        joint.enableCollision = true;
+        joint.connectedAnchor = new Vector2(0f, -0.5f);
+        joint.maxDistanceOnly = true;
+        joint.breakForce = 75;
+        joint.connectedBody = Player.GetComponent<Rigidbody2D>();
+        PlayerCode.interactObj = this.gameObject;
+        isInteract = true;
+    }
+
+    public void interactOut()
+    {
+        Player PlayerCode = Player.GetComponent<Player>();
+
+        PlayerCode.flipAllowed = true;
+        PlayerCode.jumpAllowed = true;
+        PlayerCode.interactObj = null;
+        Destroy(joint);
+        isInteract = false;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -60,6 +59,7 @@ public class BoxController : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             Player.GetComponent<Player>().obj = null;
+            interactOut();
         }
     }
 }

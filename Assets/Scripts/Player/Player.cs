@@ -57,8 +57,19 @@ public class Player : MonoBehaviour
 
     public void GoToInteract()
     {
-        if (obj != null) obj.GetComponent<BoxController>().interact();
-        else if (interactObj != null) interactObj.GetComponent<BoxController>().interact();
+        if (obj != null || interactObj != null)
+        {
+            if (obj.CompareTag("lever"))
+            {
+                obj.GetComponent<LeverController>().interact();
+            } else
+
+            if (obj.CompareTag("box") || interactObj.CompareTag("box"))
+            {
+                if (interactObj != null) interactObj.GetComponent<BoxController>().interactOut();
+                else if (obj != null) obj.GetComponent<BoxController>().interact();
+            }
+        }
 
 
     }
