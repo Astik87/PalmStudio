@@ -1,12 +1,12 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class FadeInOut : MonoBehaviour {
 	
 	public static bool sceneEnd;
 	public float fadeSpeed = 0.5f;
-	public static string nextLevel;
 	private Image _image;
 	private bool sceneStarting;
 
@@ -44,7 +44,7 @@ public class FadeInOut : MonoBehaviour {
 		if(_image.color.a >= 0.95f)
 		{
 			_image.color = Color.black;
-			Application.LoadLevel(nextLevel);
+			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 		}
 	}
 }

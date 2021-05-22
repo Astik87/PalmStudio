@@ -8,8 +8,6 @@ public class NextLevel : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            print("Hi");
-            FadeInOut.nextLevel = "Level2";
             FadeInOut.sceneEnd = true;
         }
     }
