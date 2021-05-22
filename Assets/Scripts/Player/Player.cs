@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     public bool flip = false;
     public bool flipAllowed = true;
     public bool jumpAllowed = true;
+    Collider2D[] colliders;
 
     public GameObject checkerGround;
     public Joystick joystick;
@@ -29,11 +30,13 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        colliders = Physics2D.OverlapCircleAll(checkerGround.transform.position, groundRadius);
         dx = joystick.Horizontal;
         rb.velocity = new Vector2(dx * speed, rb.velocity.y);
         if (flip == false && dx < 0) Flip();
         else if (flip == true && dx > 0) Flip();
         anim.SetFloat("speed", Mathf.Abs(dx));
+        anim.SetBool("isJump", colliders.Length <= 1);
     }
 
     public void Flip()
@@ -47,13 +50,10 @@ public class Player : MonoBehaviour
 
     public void Jump()
     {
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(checkerGround.transform.position, groundRadius);
         if (colliders.Length > 1 && jumpAllowed)
         {
             rb.velocity = Vector2.up * jumpForce;
         }
-
-        anim.SetBool("isJump", colliders.Length <= 1);
     }
 
 }
