@@ -1,22 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 public class BoxController : MonoBehaviour
 {
 
     private GameObject Player;
+    Player PlayerCode;
     private DistanceJoint2D joint;
     public bool isInteract = false;
-
-    private void Start()
+    private GameObject Interact;
+    public EventTrigger.Entry entry;
+    private void Awake()
     {
         Player = GameObject.Find("Player");
+        PlayerCode = Player.GetComponent<Player>();
+        Interact = GameObject.Find("Interact");
+
+        entry = new EventTrigger.Entry();
+        entry.eventID = EventTriggerType.PointerDown;
+        entry.callback.AddListener((data) => {
+            if (isInteract) interactOut();
+            else interact();
+        });
     }
 
     public void interact()
     {
-        Player PlayerCode = Player.GetComponent<Player>();
-
         if (Player.transform.position.x > transform.position.x && !PlayerCode.flip) PlayerCode.Flip();
         if (Player.transform.position.x < transform.position.x && PlayerCode.flip) PlayerCode.Flip();
 
@@ -37,8 +47,6 @@ public class BoxController : MonoBehaviour
 
     public void interactOut()
     {
-        Player PlayerCode = Player.GetComponent<Player>();
-
         PlayerCode.flipAllowed = true;
         PlayerCode.jumpAllowed = true;
         PlayerCode.interactObj = null;
@@ -50,16 +58,23 @@ public class BoxController : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            Player.GetComponent<Player>().obj = this.gameObject;
+            if (PlayerCode.interactObj == null) Interact.GetComponent<EventTrigger>().triggers.Add(entry);
+            Interact.SetActive(true);
         }
+
+
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-            Player.GetComponent<Player>().obj = null;
-            interactOut();
+            if (isInteract) interactOut();
+            if (PlayerCode.interactObj == null)
+            {
+                Interact.SetActive(false);
+                Interact.GetComponent<EventTrigger>().triggers.Remove(entry);
+            }
         }
     }
 }
