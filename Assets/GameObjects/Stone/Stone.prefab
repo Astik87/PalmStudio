@@ -156,7 +156,6 @@ MonoBehaviour:
   force: 15
   trajectory: {fileID: 0}
   direction: 1
-  coll: {fileID: 6513244028867417964}
 --- !u!114 &3832590143269235622
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -178,4 +177,4 @@ MonoBehaviour:
   Prefab: {fileID: 6513244028867417954}
   Name: stone
   count: 0
-  icon: {fileID: 7506063988363691569, guid: 43bd43553e872994b9dc3dd13f37c250, type: 3}
+  icon: {fileID: 2138528962535284089, guid: 43bd43553e872994b9dc3dd13f37c250, type: 3}
