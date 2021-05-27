@@ -11,7 +11,9 @@ public class Player : MonoBehaviour
     public bool flip = false;
     public bool flipAllowed = true;
     public bool jumpAllowed = true;
+    public bool moveAllowed = true;
     Collider2D[] colliders;
+    public Inventory inventory;
 
     public GameObject checkerGround;
     public Joystick joystick;
@@ -19,12 +21,15 @@ public class Player : MonoBehaviour
     public Animator anim;
 
     public GameObject interactObj;
+    public static GameObject Interact;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        GameObject.Find("Interact").SetActive(false);
+        Player.Interact = GameObject.Find("Interact");
+        Player.Interact.SetActive(false);
+        inventory = GetComponent<Inventory>();
     }
 
     // Update is called once per frame
@@ -32,10 +37,10 @@ public class Player : MonoBehaviour
     {
         colliders = Physics2D.OverlapCircleAll(checkerGround.transform.position, groundRadius);
         dx = joystick.Horizontal;
-        rb.velocity = new Vector2(dx * speed, rb.velocity.y);
+        if (moveAllowed) rb.velocity = new Vector2(dx * speed, rb.velocity.y);
         if (flip == false && dx < 0) Flip();
         else if (flip == true && dx > 0) Flip();
-        anim.SetFloat("speed", Mathf.Abs(dx));
+        if (moveAllowed) anim.SetFloat("speed", Mathf.Abs(dx));
         anim.SetBool("isJump", colliders.Length <= 1);
     }
 
