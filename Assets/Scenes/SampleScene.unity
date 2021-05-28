@@ -204,7 +204,7 @@ Transform:
   m_LocalScale: {x: 4, y: 4, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &21690944
 BoxCollider2D:
@@ -266,7 +266,7 @@ Transform:
   - {fileID: 2087812662}
   - {fileID: 380337422}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &68563614
 BoxCollider2D:
@@ -313,11 +313,11 @@ MonoBehaviour:
   flip: 0
   flipAllowed: 1
   jumpAllowed: 1
+  moveAllowed: 1
+  inventory: {fileID: 0}
   checkerGround: {fileID: 380337421}
-  Interact: {fileID: 627299711}
   joystick: {fileID: 603619694}
   anim: {fileID: 2087812664}
-  obj: {fileID: 0}
   interactObj: {fileID: 0}
 --- !u!50 &68563616
 Rigidbody2D:
@@ -635,7 +635,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
@@ -731,7 +731,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &530960526
 GameObject:
@@ -814,7 +814,7 @@ Transform:
   m_LocalScale: {x: 4, y: 4, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &530960529
 BoxCollider2D:
@@ -936,7 +936,7 @@ RectTransform:
   - {fileID: 603619693}
   - {fileID: 627299712}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1175,7 +1175,7 @@ Transform:
   - {fileID: 100311209}
   - {fileID: 1297087768}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &726024267
 MonoBehaviour:
@@ -1190,6 +1190,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isInteract: 0
+  entry:
+    eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls: []
 --- !u!61 &726024268
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1297,7 +1302,7 @@ Transform:
   m_LocalScale: {x: 4, y: 4, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &750498852
 BoxCollider2D:
@@ -1405,7 +1410,7 @@ Transform:
   m_LocalScale: {x: 1.1698, y: 1.3395392, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1297087767
 GameObject:
@@ -1518,7 +1523,7 @@ Transform:
   m_LocalScale: {x: 4, y: 4, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1459279539
 BoxCollider2D:
@@ -1627,7 +1632,7 @@ Transform:
   m_LocalScale: {x: 4, y: 4, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1734114730
 BoxCollider2D:
@@ -1864,5 +1869,9 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Target
       value: 
       objectReference: {fileID: 548886048}
+    - target: {fileID: 7137318499247458150, guid: 73e3c858139f5a042b74d17a689c8538, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 519420031}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73e3c858139f5a042b74d17a689c8538, type: 3}

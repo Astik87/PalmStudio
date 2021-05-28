@@ -19,7 +19,7 @@ public class Pickup : MonoBehaviour
         intEntry = new EventTrigger.Entry();
         intEntry.eventID = EventTriggerType.PointerDown;
         intEntry.callback.AddListener((data) => {
-            if (inventory.add(Prefab, Name, count, entry)) transform.position = new Vector3(0, 0, -1000);
+            if (inventory.add(Prefab, Name, count, entry)) transform.position = new Vector3(-1000, -1000, -1000);
         });
     }
 

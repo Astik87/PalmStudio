@@ -33,7 +33,7 @@ public class BoxController : MonoBehaviour
         PlayerCode.flipAllowed = false;
         PlayerCode.jumpAllowed = false;
         joint = this.gameObject.AddComponent<DistanceJoint2D>();
-        joint.autoConfigureDistance = false;
+        joint.autoConfigureDistance = true;
         joint.autoConfigureConnectedAnchor = false;
         joint.distance = 1;
         joint.enableCollision = true;
