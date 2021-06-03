@@ -16,11 +16,18 @@ public class PlatformForButton : MonoBehaviour
 
     public Button[] buttons;
 
+    //public AudioClip Chains;
+    private AudioSource AudioChains;
+    public GameObject soundObject;
+
+
     // Start is called before the first frame updat
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         startPos = transform.position;
+
+        AudioChains = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -51,14 +58,19 @@ public class PlatformForButton : MonoBehaviour
         }
 
 
-        if (state == 1)
+        if (state == 1 && transform.position.y != endPos.y)
         {
             transform.position = Vector2.MoveTowards(transform.position, endPos, speed * Time.deltaTime);
+            if (!AudioChains.isPlaying) AudioChains.Play();
         }
-
-        if (state == 0)
+        else if (state == 0 && transform.position.y != startPos.y)
         {
             transform.position = Vector2.MoveTowards(transform.position, startPos, speed * Time.deltaTime);
+            if (!AudioChains.isPlaying) AudioChains.Play();
+        }
+        else
+        {
+            if (AudioChains.isPlaying) AudioChains.Stop();
         }
     }
 
