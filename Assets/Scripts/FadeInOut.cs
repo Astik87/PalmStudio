@@ -38,6 +38,7 @@ public class FadeInOut : MonoBehaviour {
 
 	void EndScene ()
 	{
+		UnlockLevel();
 		_image.enabled = true;
 		_image.color = Color.Lerp(_image.color, Color.black, fadeSpeed * Time.deltaTime);
 
@@ -47,4 +48,15 @@ public class FadeInOut : MonoBehaviour {
 			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 		}
 	}
+
+	public void UnlockLevel()
+	{
+		int currentLevel = SceneManager.GetActiveScene().buildIndex;
+
+		if (currentLevel >= PlayerPrefs.GetInt("levels"))
+		{
+			PlayerPrefs.SetInt("levels", currentLevel + 1);
+		}
+	}
+
 }

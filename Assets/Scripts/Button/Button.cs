@@ -9,6 +9,7 @@ public class Button : MonoBehaviour
 
     private Vector2 startPos;
     public Vector2 endPos;
+    internal bool interactable;
 
     private void Start()
     {
