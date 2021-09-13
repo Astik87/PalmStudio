@@ -42,6 +42,7 @@ public class Player : MonoBehaviour
         else if (flip == true && dx > 0) Flip();
         if (moveAllowed) anim.SetFloat("speed", Mathf.Abs(dx));
         anim.SetBool("isJump", colliders.Length <= 1);
+        if (Input.GetKeyUp(KeyCode.Space)) Jump();
     }
 
     public void Flip()

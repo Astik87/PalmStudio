@@ -17,11 +17,15 @@ public class Lever : MonoBehaviour
     public float y = 0;
     public Rigidbody2D rb;
 
+    private AudioSource AudioLever;
+    public GameObject soundObject;
+
     private void Awake()
     {
         Player = GameObject.Find("Player");
         PlayerCode = Player.GetComponent<Player>();
         Interact = GameObject.Find("Interact");
+        AudioLever = GetComponent<AudioSource>();
 
         entry = new EventTrigger.Entry();
         entry.eventID = EventTriggerType.PointerDown;
@@ -46,6 +50,8 @@ public class Lever : MonoBehaviour
     public void interact()
     {
         isActive = true;
+        if (!AudioLever.isPlaying) AudioLever.Play();
+        else if (AudioLever.isPlaying) AudioLever.Stop();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -55,8 +61,6 @@ public class Lever : MonoBehaviour
             if (PlayerCode.interactObj == null) Interact.GetComponent<EventTrigger>().triggers.Add(entry);
             Interact.SetActive(true);
         }
-
-
     }
 
     private void OnTriggerExit2D(Collider2D collision)
