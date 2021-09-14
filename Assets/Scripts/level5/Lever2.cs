@@ -39,7 +39,6 @@ public class Lever2 : MonoBehaviour
             Interact.SetActive(true);
         }
 
-
     }
 
     private void OnTriggerExit2D(Collider2D collision)

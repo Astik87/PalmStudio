@@ -9,6 +9,7 @@ public class Lever1 : MonoBehaviour
     
 	public Rigidbody2D box1;
 	public Rigidbody2D box2;
+    public Rigidbody2D platform;
 
     private GameObject Player;
     private Player PlayerCode;
