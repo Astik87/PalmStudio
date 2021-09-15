@@ -6,7 +6,8 @@ using UnityEngine.EventSystems;
 public class Lever2 : MonoBehaviour
 {
     
-    public Platform platform;
+    public Platform platform1;
+    public Platform platform2;
 
     private GameObject Player;
     private Player PlayerCode;
@@ -28,7 +29,8 @@ public class Lever2 : MonoBehaviour
 
     public void interact()
     {
-    	platform.boxCount = 0;
+    	platform1.boxCount = 0;
+        platform2.boxCount = 0;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
