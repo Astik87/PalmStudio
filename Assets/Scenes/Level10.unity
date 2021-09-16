@@ -7128,7 +7128,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1905997015}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.56, y: -2.18, z: 0}
+  m_LocalPosition: {x: -5.39, y: -1.46, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -7552,7 +7552,7 @@ MonoBehaviour:
   Pos3: {x: 48.08, y: -10.36}
   Pos4: {x: 101.97, y: -10.35}
   Pos5: {x: 107.81, y: -12.9}
-  Pos6: {x: 107.81, y: -50}
+  Pos6: {x: 107.8, y: -50}
   count: 0
   boxCount: 1
   state: 0
