@@ -5,6 +5,7 @@ using UnityEngine.EventSystems;
 public class BoxController : MonoBehaviour
 {
 
+    public Button button;
     private GameObject Player;
     Player PlayerCode;
     private DistanceJoint2D joint;
