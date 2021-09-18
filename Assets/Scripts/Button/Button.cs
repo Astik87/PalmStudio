@@ -14,7 +14,9 @@ public class Button : MonoBehaviour
     private void Start()
     {
         startPos = transform.position;
-        endPos = new Vector2(startPos.x + 0.15f, startPos.y);
+        if (endPos.x == 0) {
+            endPos = new Vector2(startPos.x + 0.15f, startPos.y);
+        }
     }
 
     private void Update()

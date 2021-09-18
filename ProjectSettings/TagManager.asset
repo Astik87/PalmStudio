@@ -12,6 +12,7 @@ TagManager:
   - button
   - gate1
   - gates1
+  - Blockage
   layers:
   - Default
   - TransparentFX
