@@ -49,6 +49,7 @@ public class Stone : MonoBehaviour
 
             EventTrigger.Entry entry = new EventTrigger.Entry();
             entry.eventID = EventTriggerType.PointerDown;
+
             entry.callback.AddListener((data) => {
                 Player player = GameObject.Find("Player").GetComponent<Player>();
                 Stone stone = player.interactObj.GetComponent<Stone>();
@@ -84,6 +85,7 @@ public class Stone : MonoBehaviour
     }
     public void Push()
     {
+
         transform.SetParent(null);
         rb.bodyType = RigidbodyType2D.Dynamic;
         rb.AddForce(vector * force, ForceMode2D.Impulse);

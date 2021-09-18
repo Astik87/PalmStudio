@@ -10,6 +10,9 @@ TagManager:
   - Block
   - ground
   - button
+  - gate1
+  - gates1
+  - LeverPart1
   layers:
   - Default
   - TransparentFX
