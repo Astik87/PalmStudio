@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Platform : MonoBehaviour
+public class ABOBA1 : MonoBehaviour
 {
     private Rigidbody2D rb;
 
@@ -10,15 +10,18 @@ public class Platform : MonoBehaviour
 
     private Vector2 startPos;
     public Vector2 endPos;
+    public Vector2 aboba;
     public int count;
+
    
     public int boxCount;
     public int state;
     public float speed;
-  
+    public int heroCount;
+    public int a;
 
-    public List<GameObject> GOinTrigger = new List<GameObject>();
-    
+  
+    public List<GameObject> GOinTrigger1 = new List<GameObject>();
 
     //public AudioClip Chains;
     private AudioSource AudioChains;
@@ -30,26 +33,28 @@ public class Platform : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         startPos = transform.position;
         count = 0;
-        
-
         AudioChains = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
-
-        count = GOinTrigger.Count;
-        if (GOinTrigger.Count >= boxCount * 2) state = 1;
         
-        else state = 0;
+       
+       
+        if (GOinTrigger1.Count >= heroCount * 1) a = 1;
+        else a = 0;
 
-        if (state == 1 && transform.position.y != endPos.y)
+
+
+
+        
+        if ( a == 1 && transform.position.y != endPos.y)
         {
             transform.position = Vector2.MoveTowards(transform.position, endPos, speed * Time.deltaTime);
             if (!AudioChains.isPlaying) AudioChains.Play();
         }
-        else if (state == 0 && transform.position.y != startPos.y)
+        else if (a == 0 && transform.position.y != startPos.y)
         {
             transform.position = Vector2.MoveTowards(transform.position, startPos, speed * Time.deltaTime);
             if (!AudioChains.isPlaying) AudioChains.Play();
@@ -62,21 +67,21 @@ public class Platform : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-       
-
-        if (collision.CompareTag("box"))
+        if (collision.CompareTag("Player"))
         {
-            GOinTrigger.Add(collision.gameObject);
+            GOinTrigger1.Add(collision.gameObject);
         }
+
+        
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("box"))
-        {
-            GOinTrigger.Remove(collision.gameObject);
-        }
         
-    }
+        if (collision.CompareTag("Player"))
+        {
+            GOinTrigger1.Remove(collision.gameObject);
+        }
 
+    }
 }
