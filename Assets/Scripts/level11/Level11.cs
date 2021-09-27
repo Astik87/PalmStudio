@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Lever2 : MonoBehaviour
+public class Level11 : MonoBehaviour
 {
-    
-    public Platform platform1;
-    public Platform platform2;
+    public PlatformHorizontal platform;
+    public Platform11 platform2;
+    public Button btn;
+    public Button btn2;
+    public Rigidbody2D stone;
 
     private GameObject Player;
     private Player PlayerCode;
@@ -27,10 +29,14 @@ public class Lever2 : MonoBehaviour
         });
     }
 
+    void Update() {
+        stone.simulated = btn.state;
+        if (btn2.state) platform2.state = 1;
+    }
+
     public void interact()
     {
-    	platform1.boxCount = 0;
-        if (platform2) platform2.boxCount = 0;
+        platform.speed = 1f;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -40,6 +46,7 @@ public class Lever2 : MonoBehaviour
             if (PlayerCode.interactObj == null) Interact.GetComponent<EventTrigger>().triggers.Add(entry);
             Interact.SetActive(true);
         }
+
 
     }
 
@@ -54,5 +61,4 @@ public class Lever2 : MonoBehaviour
             }
         }
     }
-    
 }

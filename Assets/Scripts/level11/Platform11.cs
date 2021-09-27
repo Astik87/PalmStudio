@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlatformHorizontal : MonoBehaviour
+public class Platform11 : MonoBehaviour
 {
     private Rigidbody2D rb;
 
@@ -38,10 +38,6 @@ public class PlatformHorizontal : MonoBehaviour
         {
             transform.position = Vector2.MoveTowards(transform.position, startPos, speed * Time.deltaTime);
         }
-
-        if (transform.position.x == endPos.x && transform.position.y == endPos.y) state = 0;
-
-        if (transform.position.x == startPos.x && transform.position.y == startPos.y) state = 1;
 
     }
 

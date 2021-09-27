@@ -10,6 +10,7 @@ public class NextLevel : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             FadeInOut.sceneEnd = true;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
 }

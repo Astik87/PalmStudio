@@ -3,15 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - box
-  - lever
-  - Interact
-  - Block
-  - ground
-  - button
-  - gate1
-  - gates1
+  tags: []
   layers:
   - Default
   - TransparentFX

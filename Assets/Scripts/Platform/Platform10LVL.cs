@@ -38,10 +38,7 @@ public class Platform10LVL : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if (state == 0 && GOinTrigger.Count >= boxCount * 2)
-        //{
-        //    state = 1;
-        //}
+        
         count = GOinTrigger.Count;
         if (GOinTrigger.Count >= boxCount * 2) state = 1;
         //else state = 0;
