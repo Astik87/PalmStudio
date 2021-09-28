@@ -45,7 +45,9 @@ public class LOW : MonoBehaviour
         if (button3.irr == 1 && button2.arr == 0 && a == 0)//первое нажатие
         {
             chet = 1;
+            
         }
+        
 
         if (chet == 1)//второе нажатие
         {
@@ -56,6 +58,7 @@ public class LOW : MonoBehaviour
                     chet = 2;
                   
         }
+        
 
         if (chet == 2)//третье нажатие
         {
@@ -65,7 +68,7 @@ public class LOW : MonoBehaviour
   
                 
         }
-       
+        
 
         if (chet == 3)
         {//четвертое нажатие
@@ -74,7 +77,7 @@ public class LOW : MonoBehaviour
                     chet = 4;
                 
         }
-
+        
         if (chet == 4)//пятое нажатие
         {
 
@@ -83,6 +86,7 @@ public class LOW : MonoBehaviour
                 chet = 5;
 
         }
+        
     }
     public void setState(bool s)
     {

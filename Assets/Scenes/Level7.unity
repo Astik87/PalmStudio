@@ -142,7 +142,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   button3: {fileID: 1407112565}
   button2: {fileID: 1235281790}
-  chet: 0
+  chet: 10
   a: 0
   state1: 0
   endPos: {x: 0, y: 0}
@@ -1336,7 +1336,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button: {fileID: 33417390}
-  endPos: {x: 11.2595, y: 15.58}
+  endPos: {x: 10.4507, y: 15.58}
   state: 0
   speed: 1
   pos: 0
@@ -1399,8 +1399,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 512012112}
   m_LocalRotation: {x: -0, y: -0, z: 0.7074939, w: 0.7067194}
-  m_LocalPosition: {x: 11.2595, y: 7.33, z: 0}
-  m_LocalScale: {x: 119.18774, y: 1.7350595, z: 1}
+  m_LocalPosition: {x: 10.4507, y: 7.33, z: 0}
+  m_LocalScale: {x: 119.18774, y: 0.20158283, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 35
@@ -4093,7 +4093,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5236922058723845681, guid: 2b5ef09488cb0c440a8388410d3f6be2, type: 3}
       propertyPath: m_Size.x
-      value: 12.523046
+      value: 13.142624
       objectReference: {fileID: 0}
     - target: {fileID: 5236922058723845681, guid: 2b5ef09488cb0c440a8388410d3f6be2, type: 3}
       propertyPath: m_Size.y
@@ -4121,7 +4121,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7330649921780416512, guid: 2b5ef09488cb0c440a8388410d3f6be2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 28.1142
+      value: 27.3242
       objectReference: {fileID: 0}
     - target: {fileID: 7330649921780416512, guid: 2b5ef09488cb0c440a8388410d3f6be2, type: 3}
       propertyPath: m_LocalPosition.y
