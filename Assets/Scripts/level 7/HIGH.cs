@@ -14,13 +14,13 @@ public class HIGH : MonoBehaviour
     void Start()
     {
         startPos = transform.position;
-        endPos = new Vector2(startPos.x - 0.15f, startPos.y);
+        endPos = new Vector2(startPos.x, startPos.y+0.15f);
     }
 
     // Update is called once per frame
     public void Update()
     {
-        if (transform.position.x == endPos.x)
+        if (transform.position.y == endPos.y)
         {
             state3 = false;
             irr++;
