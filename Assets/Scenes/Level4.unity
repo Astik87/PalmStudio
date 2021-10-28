@@ -251,6 +251,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab7286675ee5802479d21c5f29519489, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
 --- !u!1001 &205859050
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -308,6 +309,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2dde01fff099d7949950e1122bf680e6, type: 3}
+=======
+>>>>>>> a096d95c7b3f01b55f7469def45cd40660b602a5
 --- !u!1 &228930278
 GameObject:
   m_ObjectHideFlags: 0

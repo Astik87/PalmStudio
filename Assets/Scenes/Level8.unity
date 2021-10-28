@@ -1781,6 +1781,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 49
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 --- !u!1001 &472505935
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1838,6 +1839,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2dde01fff099d7949950e1122bf680e6, type: 3}
+=======
+>>>>>>> a096d95c7b3f01b55f7469def45cd40660b602a5
 --- !u!1001 &480598729
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4365,6 +4368,8 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: 7bfdf747d363370489fb65e6e5dbd5cd, type: 3}
 --- !u!1 &1301850119
 GameObject:
+<<<<<<< HEAD
+=======
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -4383,10 +4388,32 @@ GameObject:
   m_IsActive: 1
 --- !u!61 &1301850120
 BoxCollider2D:
+>>>>>>> a096d95c7b3f01b55f7469def45cd40660b602a5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1301850122}
+  - component: {fileID: 1301850121}
+  - component: {fileID: 1301850120}
+  m_Layer: 0
+  m_Name: "\u043A\u043E\u0432\u0440\u0438\u043A"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!61 &1301850120
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+=======
+>>>>>>> a096d95c7b3f01b55f7469def45cd40660b602a5
   m_GameObject: {fileID: 1301850119}
   m_Enabled: 1
   m_Density: 1
