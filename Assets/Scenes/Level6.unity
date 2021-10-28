@@ -969,6 +969,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1301547720860378134}
+    - target: {fileID: 7137318499247458150, guid: 73e3c858139f5a042b74d17a689c8538, type: 3}
+      propertyPath: m_SortingOrder
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7137318499247458154, guid: 73e3c858139f5a042b74d17a689c8538, type: 3}
       propertyPath: m_Name
       value: Pause
